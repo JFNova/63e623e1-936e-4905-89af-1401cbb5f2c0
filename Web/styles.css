@@ -1,0 +1,15 @@
+.InData div 
+{
+    float: left;
+    padding-right: 1em;
+}
+.Presentation div
+{
+    clear: left;
+    padding-top: 1em;
+}
+
+.Presentation th
+{
+    padding-right: 5em;
+}

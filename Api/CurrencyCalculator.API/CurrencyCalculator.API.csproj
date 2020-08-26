@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CurrencyCalculator.Core\CurrencyCalculator.Core.csproj" />
+    <ProjectReference Include="..\CurrencyCalculator.Infrastructure\CurrencyCalculator.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

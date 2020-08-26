@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Currency converter</title>
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <link rel="stylesheet" href="styles.css">
+    </head>    
+    <body onload="initializePage()">
+        <div class="InData">
+            <div>
+                <label for="amount">Belopp</label>
+                <input type="text" id="amount" name="amount">
+            </div>
+            <div>
+                <label for="currencyFrom">Från</label>
+                <select id="currencyFrom" name="currencyFrom">
+                    <option value="">-- Välj --</option>
+                </select>
+            </div>
+            <div>
+                <label for="currencyTo">Till</label>
+                <select id="currencyTo" name="currencyTo">
+                    <option value="">-- Välj --</option>
+                </select>
+            </div>
+            <div>
+                <label for="exchangeDate">Växlingsdatum</label>
+                <input type="date" id="exchangeDate" name="exchangeDate">
+            </div>
+            <div>
+                <input type="button" id="convert" name="convert" value="Lägg till" onclick="addRow()">
+            </div>
+        </div>
+        <div class="Presentation">
+            <div>
+                <table id="currencyRows">
+                    <tr>
+                        <th>Valutakursdatum</th>
+                        <th>Input</th>
+                        <th>Kurs</th>
+                        <th>Värde</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <label>Total</label>
+                <label id="totalAmount">?</label>
+                <select id="currencyTotal" name="currencyTotal" onmouseup="calculateTotal()">
+                    <option value="">-- Välj --</option>
+                </select>
+            </div>
+        </div>
+        <script src="script.js"></script>    
+    </body>
+</html>
