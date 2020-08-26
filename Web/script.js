@@ -1,17 +1,10 @@
-async function loadCurrenciesAsync(id)
+async function loadCurrenciesAsync()
 {
     var url = 'https://localhost:44359/CurrencyCalculator/ListCurrenciesAsync';
     var response = await fetch(url);
     var data = await response.json();
-    
-    var dropdown = document.getElementById(id);
 
-    for (var i = 0; i < data.length; i++) {
-        var option = document.createElement("option");
-        option.text = data[i].code + ' (' + data[i].name + ')';
-        option.value = data[i].id;
-        dropdown.add(option);
-    }
+    return data;
 }
 
 async function convertAsync(fromCurrencyId, toCurrencyId, amount, exchangeDate)
@@ -107,9 +100,24 @@ function deleteRow(id)
 
 function initializePage()
 {
-    loadCurrenciesAsync("currencyFrom");
-    loadCurrenciesAsync("currencyTo");
-    loadCurrenciesAsync("currencyTotal");
+    loadCurrenciesAsync().then(data =>
+        {
+            populate("currencyFrom", data);
+            populate("currencyTo", data);
+            populate("currencyTotal", data);
+        });
+}
+
+function populate(id, data)
+{
+    var dropdown = document.getElementById(id);
+
+    for (var i = 0; i < data.length; i++) {
+        var option = document.createElement("option");
+        option.text = data[i].code + ' (' + data[i].name + ')';
+        option.value = data[i].id;
+        dropdown.add(option);
+    }
 }
 
 function calculateTotal()
